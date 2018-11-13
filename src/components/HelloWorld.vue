@@ -10,18 +10,11 @@
 </template>
 
 <script>
-/** computed */
-const name = {
-  get() {
-    return this.$store.state.name;
-  },
-  set(value) {
-    this.$store.commit('setName', value);
-  },
-};
+import { createComputed } from "../helpers/vuex";
 
+/** computed */
 const computed = {
-  name,
+  name: createComputed('name'),
 };
 
 export default {
