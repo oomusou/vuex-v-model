@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <input type="text" v-model="name">
+      <input type="text" :value="name" @input="onInputName">
     </div>
     <div>
       {{ name }}
@@ -10,14 +10,23 @@
 </template>
 
 <script>
-const data = function() {
-  return {
-    name: '',
-  };
+import { mapState } from 'vuex';
+
+/** computed */
+const computed = mapState(['name']);
+
+/** methods */
+const onInputName = function(e) {
+  this.$store.commit('setName', e.target.value);
+};
+
+const methods = {
+  onInputName,
 };
 
 export default {
   name: 'HelloWorld',
-  data,
+  computed,
+  methods,
 };
 </script>
