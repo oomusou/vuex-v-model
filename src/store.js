@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { createMutation } from "./helpers/vuex";
 
 Vue.use(Vuex);
 
@@ -9,10 +10,8 @@ const state = {
 };
 
 /** mutations */
-const setName = (state, payload) => state.name = payload;
-
 const mutations = {
-  setName,
+  setName: createMutation('name'),
 };
 
 export default new Vuex.Store({

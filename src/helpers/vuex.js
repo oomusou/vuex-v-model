@@ -17,3 +17,8 @@ export const createComputed = stateName => {
     set,
   };
 };
+
+/** 建立 mutation function */
+export const createMutation = stateName =>
+  (state, payload) => state[stateName] = payload;
+
